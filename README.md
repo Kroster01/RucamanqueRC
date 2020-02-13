@@ -26,6 +26,8 @@ Para realziar la compilación: (lo crea dentro de la carpeta ./server/build/inde
 * crear dependencia solo para ambiente de desarrollo no para prod
 -> npm i nodemon -D
 -> npm i @types/express -D
+-> npm i @types/morgan -D
+-> npm i @types/cors -D
 
 
 -> dev el cual se ejecuta con el siguiente comando reconoce los cambios en el archivo index.js:
