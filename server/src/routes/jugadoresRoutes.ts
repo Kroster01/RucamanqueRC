@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { jugadorController } from '../controllers/jugadorController';
 
 class JugadoresRoutes {
 
@@ -8,7 +9,7 @@ class JugadoresRoutes {
     }
 
     config(): void {
-        this.routes.get('/', (req, res) => res.send('Hello Jugador.'));
+        this.routes.get('/', jugadorController.index);
     }
 
 }

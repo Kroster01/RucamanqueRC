@@ -6,7 +6,11 @@ crear package.json
  * npm init --yes
 
 dependencias par el uso de la aplicación
- * npm i express morgan promise-mysql cors
+ * npm i express
+ * npm i morgan
+ * npm i promise-mysql@3.3.1
+ * npm i cors
+
 
 instaar Type Script
  * npm install -g typescript

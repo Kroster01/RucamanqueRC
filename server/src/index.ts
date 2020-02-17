@@ -23,7 +23,7 @@ class Server {
     
     routes(): void {
         this.app.use('/', indexRoutes);
-        this.app.use('/jug', jugadoresRoutes);
+        this.app.use('/jugador/', jugadoresRoutes);
     }
     
     start(): void {

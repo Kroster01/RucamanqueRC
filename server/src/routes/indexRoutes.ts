@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { indexController } from '../controllers/indexController';
 
 class IndexRoutes {
 
@@ -8,7 +9,7 @@ class IndexRoutes {
     }
 
     config(): void {
-        this.routes.get('/', (req, res) => res.send('Hello User.'));
+        this.routes.get('/', indexController.index);
     }
 
 }
