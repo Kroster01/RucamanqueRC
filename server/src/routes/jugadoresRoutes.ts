@@ -10,7 +10,7 @@ class JugadoresRoutes {
 
     config(): void {
         this.router.get('/', jugadorController.list);
-        this.router.get('/', jugadorController.getOne);
+        this.router.get('/:id', jugadorController.getOne);
         this.router.post('/', jugadorController.create);
         this.router.put('/:id', jugadorController.update);
         this.router.delete('/:id', jugadorController.delete);

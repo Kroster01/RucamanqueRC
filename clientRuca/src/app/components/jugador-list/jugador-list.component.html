@@ -1,0 +1,19 @@
+
+<div class="col-md-4" *ngFor="let jugador of jugadores">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        {{jugador.nombre}}
+        <button class="btn btn-danger" (click)="deleteJugador(jugador.id)">
+            <i class="fa fa-trash"></i>
+        </button>
+        </div>
+        <img class="card-img-top" [src]="jugador.imagen">
+        <div class="card-body">
+            <p>{{jugador.rut}}</p>
+            <p>Created {{jugador.create_row_date | date: 'yyyy-MM-dd'}}</p>
+            <a [routerLink]="['/jugadores/edit', jugador.id]" class="btn btn-info btn-block">
+                EDIT JUGADOR
+            </a>
+        </div>
+    </div>
+</div>

@@ -7,6 +7,7 @@
         nombre VARCHAR(50),
         rut VARCHAR(12),
         edad INT(3),
+        imagen VARCHAR(200),
         create_row_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
     

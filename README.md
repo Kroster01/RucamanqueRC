@@ -36,3 +36,29 @@ Para realziar la compilación: (lo crea dentro de la carpeta ./server/build/inde
 
 -> dev el cual se ejecuta con el siguiente comando reconoce los cambios en el archivo index.js:
        * npm run dev
+
+Fin Creación del server y concceción a BD
+
+/********************************************************************/
+
+Creación de aplicación angular:
+
+* Instalar angular CLI
+       -> npm install -g @angular/cli
+
+* Crear el proyecto 
+       -> ng new clientRuca --routing
+
+
+* ng g c components/navigationng  
+* ng g c components/jugador-form
+* ng g c components/jugador-list
+
+* ng g s services/jugadores
+
+/*******/
+
+Para cambiar los temas de bootstrap ( Layout )
+https://bootswatch.com/
+
+/*******/
