@@ -4,23 +4,11 @@ import { JugadorListComponent } from './components/jugador-list/jugador-list.com
 import { JugadorFormComponent } from './components/jugador-form/jugador-form.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/jugadores',
-    pathMatch: 'full'
-  },
-  {
-    path: 'jugadores',
-    component: JugadorListComponent
-  },
-  {
-    path: 'jugadores/add',
-    component: JugadorFormComponent
-  },
-  {
-    path: 'jugadores/edit/:id',
-    component: JugadorFormComponent
-  }
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
+  { path: 'jugadores', component: JugadorListComponent },
+  { path: 'jugadores/add', component: JugadorFormComponent },
+  { path: 'jugadores/edit/:id', component: JugadorFormComponent }
 ];
 
 @NgModule({

@@ -1,5 +1,7 @@
 RucamanqueRC
 
+https://www.youtube.com/watch?v=lxYB79ANJM8
+
 Comandos importantes:
 (Comandos dentro de la carpeta server)
 crear package.json
@@ -50,7 +52,7 @@ Creación de aplicación angular:
        -> ng new clientRuca --routing
 
 
-* ng g c components/navigationng  
+* ng g c components/navigationng
 * ng g c components/jugador-form
 * ng g c components/jugador-list
 
@@ -62,3 +64,28 @@ Para cambiar los temas de bootstrap ( Layout )
 https://bootswatch.com/
 
 /*******/
+
+Login:
+
+https://www.youtube.com/watch?v=BCygvtZwkh4
+
+
+* ng g s services/auth
+
+* ng g i models/jwt-response
+* ng g i models/user
+
+* ng g m auth
+
+* ng g c auth/login
+* ng g c auth/register
+
+
+* ng g s services/register
+
+
+*****************
+Imagenes User test
+https://assets.entrepreneur.com/content/3x2/2000/20160816143948-miedo.jpeg?width=700&crop=2:1
+https://psicologiaymente.com/media/Az/2a/vD/Az2avDXLkL/personas-emocionales/personas-emocionales-social.jpg
+https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS77DWbO9imEF9XYqV7QPyWP8W6k_XFpHM6XWG87yj86Eoze4AS

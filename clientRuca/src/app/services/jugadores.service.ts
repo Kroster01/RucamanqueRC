@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class JugadoresService {
 
-  API_URI = 'http://localhost:3000';
+  API_URI: string = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 

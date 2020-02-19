@@ -11,6 +11,7 @@ import { JugadorListComponent } from './components/jugador-list/jugador-list.com
 // Services
 import { JugadoresService } from './services/jugadores.service';
 import { JugadorFormComponent } from './components/jugador-form/jugador-form.component';
+import { AuthModule } from "../app/auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { JugadorFormComponent } from './components/jugador-form/jugador-form.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AuthModule
   ],
   providers: [
     JugadoresService
