@@ -2,46 +2,63 @@ RucamanqueRC
 
 https://www.youtube.com/watch?v=lxYB79ANJM8
 
-versiones.
-* node: 10.15.3
-* Angular CLI: 9.0.2
+#### versiones.
+```
+       * node: 10.15.3
+       * Angular CLI: 9.0.2
+```
 
-Comandos importantes:
+# Comandos importantes:
 (Comandos dentro de la carpeta server)
-crear package.json
- * npm init --yes
 
-dependencias par el uso de la aplicación
- * npm i express
- * npm i morgan
- * npm i promise-mysql@3.3.1
- * npm i cors
+#### Crear package.json
+```
+       * npm init --yes
+```
 
+#### Dependencias par el uso de la aplicación
+```
+       * npm i express
+       * npm i morgan
+       * npm i promise-mysql@3.3.1
+       * npm i cors
+```
 
-instaar Type Script
- * npm install -g typescript
+#### Instaar Type Script
+```
+       * npm install -g typescript
+```
 
-crear tsconfig.ts
-  * tsc -- init
+#### Crear tsconfig.ts
+```
+       * tsc -- init
+```
 
-Para realziar la compilación: (lo crea dentro de la carpeta ./server/build/index.js)
- * tsc 
+#### Para realziar la compilación: (lo crea dentro de la carpeta ./server/build/index.js)
+```
+       * tsc
+```
 
  ----------------------------------------------------------
 
- * rear un comando en el package.json
+#### Cear un comando en el package.json
  -> build el cual se ejecuta con el siguiente comando reconoce los cambios en el archivo index.ts:
+```
        * npm run build
+```
 
-* crear dependencia solo para ambiente de desarrollo no para prod
--> npm i nodemon -D
--> npm i @types/express -D
--> npm i @types/morgan -D
--> npm i @types/cors -D
+#### Crear dependencia solo para ambiente de desarrollo no para prod
+```
+       * npm i nodemon -D
+       * npm i @types/express -D
+       * npm i @types/morgan -D
+       * npm i @types/cors -D
+```
 
-
--> dev el cual se ejecuta con el siguiente comando reconoce los cambios en el archivo index.js:
+#### Comando dev: el cual se ejecuta con el siguiente comando reconoce los cambios en el archivo index.js:
+```
        * npm run dev
+```
 
 Fin Creación del server y concceción a BD
 
@@ -49,18 +66,27 @@ Fin Creación del server y concceción a BD
 
 Creación de aplicación angular:
 
-* Instalar angular CLI
-       -> npm install -g @angular/cli
+#### Instalar angular CLI
+```
+       * npm install -g @angular/cli
+```
 
-* Crear el proyecto 
-       -> ng new clientRuca --routing
+#### Crear el proyecto
+```
+       * ng new clientRuca --routing
+```
 
+#### Creación de componentes
+```
+       * ng g c components/navigationng
+       * ng g c components/jugador-form
+       * ng g c components/jugador-list
+```
 
-* ng g c components/navigationng
-* ng g c components/jugador-form
-* ng g c components/jugador-list
-
-* ng g s services/jugadores
+#### Creación de servicios
+```
+       * ng g s services/jugadores
+```
 
 /*******/
 
@@ -74,19 +100,16 @@ Login:
 https://www.youtube.com/watch?v=BCygvtZwkh4
 
 
-* ng g s services/auth
-
-* ng g i models/jwt-response
-* ng g i models/user
-
-* ng g m auth
-
-* ng g c auth/login
-* ng g c auth/register
-
-
-* ng g s services/register
-
+#### Datos opcionales
+```
+       * ng g s services/auth
+       * ng g i models/jwt-response
+       * ng g i models/user
+       * ng g m auth
+       * ng g c auth/login
+       * ng g c auth/register
+       * ng g s services/register
+```
 
 *****************
 Imagenes User test
