@@ -2,6 +2,10 @@ RucamanqueRC
 
 https://www.youtube.com/watch?v=lxYB79ANJM8
 
+versiones.
+* node: 10.15.3
+* Angular CLI: 9.0.2
+
 Comandos importantes:
 (Comandos dentro de la carpeta server)
 crear package.json
