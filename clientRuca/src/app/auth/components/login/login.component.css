@@ -1,10 +1,10 @@
 
 .login-dark {
-    height:1000px;
-    background:#475d62 url(../../../../assets/fondos/star-sky.png);
+    height:500px;
+    /*background:#475d62 url(../../../../assets/fondos/pricipal_fondo.jpg);*/
     position:relative;
     background-size: contain;
-    background-repeat: no-repeat;
+    /*background-repeat: no-repeat;*/
     text-transform: lowercase;
   }
   
