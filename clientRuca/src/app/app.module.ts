@@ -5,27 +5,23 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { JugadorListComponent } from './components/jugador-list/jugador-list.component';
 
 // Services
 import { JugadoresService } from './services/jugadores.service';
-import { JugadorFormComponent } from './components/jugador-form/jugador-form.component';
 import { AuthModule } from "../app/auth/auth.module";
+import { JugadorModule } from "../app/jugador/jugador.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavigationComponent,
-    JugadorFormComponent,
-    JugadorListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    AuthModule
+    AuthModule,
+    JugadorModule
   ],
   providers: [
     JugadoresService

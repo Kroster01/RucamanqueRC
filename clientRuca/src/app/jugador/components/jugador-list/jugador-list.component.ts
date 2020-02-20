@@ -1,5 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { JugadoresService } from "../../services/jugadores.service";
+import { JugadoresService } from "../../../services/jugadores.service";
 //import { Jugador } from 'src/app/models/Jugador';
 
 @Component({
@@ -17,6 +17,7 @@ export class JugadorListComponent implements OnInit {
 
   ngOnInit() {
     this.getJugadores();
+
   }
 
   getJugadores() {

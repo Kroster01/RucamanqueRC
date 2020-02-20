@@ -81,11 +81,30 @@ Creación de aplicación angular:
        * ng g c components/navigationng
        * ng g c components/jugador-form
        * ng g c components/jugador-list
+
+       * ng g c auth/login
+       * ng g c auth/register
 ```
 
 #### Creación de servicios
 ```
        * ng g s services/jugadores
+       * ng g s services/auth
+       * ng g s services/register
+```
+
+#### Creación de modulos
+```
+       * ng g m auth
+       * ng g m jugador
+       * ng g m entrenador (Pendiente Creación)
+       * ng g m apoderado (Pendiente Creación)
+```
+
+#### Creación de Interfacies
+```
+       * ng g i models/jwt-response
+       * ng g i models/user
 ```
 
 /*******/
@@ -102,13 +121,7 @@ https://www.youtube.com/watch?v=BCygvtZwkh4
 
 #### Datos opcionales
 ```
-       * ng g s services/auth
-       * ng g i models/jwt-response
-       * ng g i models/user
-       * ng g m auth
-       * ng g c auth/login
-       * ng g c auth/register
-       * ng g s services/register
+       ...
 ```
 
 *****************
