@@ -1,5 +1,13 @@
 RucamanqueRC
 
+
+#### Para hacer correr la aplicación ejecutar los siguientes comandos:
+```
+       * np run build   (En la carpeta server)
+       * np run dev     (En la carpeta server)
+       * ng serve       (En la careta del proyecto)
+```
+
 https://www.youtube.com/watch?v=lxYB79ANJM8
 
 #### versiones.
