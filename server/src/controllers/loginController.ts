@@ -40,7 +40,7 @@ class LoginController {
         return res.status(200).json({ 
             dataUser: null,
             code: 401,
-            text: "Favor validar su Usuario u contraseñas."
+            text: "Favor validar su Usuario u contraseña."
      });
     }
 
