@@ -1,15 +1,17 @@
 
 <div class="login-dark">
-  <form method="post">
+  <form #frmLogin="ngForm" class="login-container" (ngSubmit)="onLogin(frmLogin)">
       <h2 class="sr-only">Login Form</h2>
       <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-      <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-      <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+      <div class="alert alert-danger" role="alert"  *ngIf="msError" >
+        {{ msErrorDesc }}
+      </div>
+      <div class="form-group"><input class="form-control" type="nickName" name="nickName" placeholder="Email" ngModel required></div>
+      <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" ngModel required></div>
       <div class="form-group">
-        <a class="nav-link" routerLink="/jugadores" routerLinkActive="active">
-          <button class="btn btn-primary btn-block" type="button">Log In</button>
+        <a class="nav-link" routerLinkActive="active">
+          <button class="btn btn-primary btn-block" type="submit" >Log In</button>
         </a>
-          
       </div>
       <a routerLink="/" class="forgot">Forgot your email or password?</a></form>
 </div>

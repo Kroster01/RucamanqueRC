@@ -4,6 +4,7 @@ import { UserI } from '../models/user';
 import { JwtResponseI } from '../models/jwt-response';
 import { tap } from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { error } from '@angular/compiler/src/util';
 
 @Injectable()
 export class AuthService {
@@ -15,27 +16,33 @@ export class AuthService {
   constructor(private httpClient: HttpClient) { }
   
   register(user: UserI): Observable<JwtResponseI> {
-    return this.httpClient.post<JwtResponseI>(`${this.AUTH_SERVER}/register`,
-      user).pipe(tap(
-        (res: JwtResponseI) => {
-          if (res) {
-            // guardar token
-            this.saveToken(res.dataUser.accessToken, res.dataUser.expiresIn);
-          }
-        })
-      );
+    return this.httpClient.post<JwtResponseI>(`${this.AUTH_SERVER}/register`, user).pipe(tap(
+      (res: JwtResponseI) => {
+        if (res.code == 200) {
+          // guardar token
+          this.saveToken(res.dataUser.accessToken, res.dataUser.expiresIn);
+        }else {
+          //  error de servidor.
+        }
+      })
+    );
   }
 
-  login(user: UserI): Observable<JwtResponseI> {
-    return this.httpClient.post<JwtResponseI>(`${this.AUTH_SERVER}/login`,
-      user).pipe(tap(
-        (res: JwtResponseI) => {
-          if (res) {
-            // guardar token
-            this.saveToken(res.dataUser.accessToken, res.dataUser.expiresIn);
-          }
-        })
-      );
+  login(user: UserI): Observable<any> {
+    return this.httpClient.post<any>(`${this.AUTH_SERVER}/login/`, user).pipe(tap(
+      (res: any) => {
+        if (res.code == 200) {
+          // guardar token
+          this.saveToken(res.dataUser.accessToken, res.dataUser.expiresIn);
+        } else if (res.code == 401) {
+          //  error autenticado
+        } else {
+          //  error de servidor.
+        }
+      }, error => {
+        console.log('soy un errorrrrrrr');
+      })
+    );
   }
 
   logout(): void {
