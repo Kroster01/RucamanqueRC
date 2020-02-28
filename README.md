@@ -129,7 +129,8 @@ https://www.youtube.com/watch?v=BCygvtZwkh4
 
 #### Datos opcionales
 ```
-       ...
+       Grupos Sanguineos:
+       O-	O+	A−	A+	B−	B+	AB−	AB+
 ```
 
 *****************

@@ -2,45 +2,25 @@
     <app-navigation></app-navigation>
     <app-navigation-jug></app-navigation-jug>
 </div>
-<!--<div class="col-md-3" *ngFor="let jugador of jugadores">
-    <div class="card text-center">
-        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-        {{jugador.nombre}}
-        <button class="btn btn-danger" (click)="deleteJugador(jugador.id)">
-            <i class="fa fa-trash"></i>
-        </button>
-        </div>
-        <img class="card-img-top" [src]="jugador.imagen">
-        <div class="card-body">
-            <p>{{jugador.rut}}</p>
-            <p>Created {{jugador.create_row_date | date: 'yyyy-MM-dd'}}</p>
-            <a [routerLink]="['/jugadores/edit', jugador.id]" class="btn btn-info btn-block">
-                EDIT JUGADOR
-            </a>
-        </div>
-    </div>
-</div>-->
 
 <div class="col-md-3" *ngFor="let jugador of jugadores">
     <div class="card text-center">
-        <a [routerLink]="['/jugadores/edit', jugador.id]" class="btn btn-info btn-block fa fa-edit"></a>
-        <button class="btn btn-danger" (click)="deleteJugador(jugador.id)">
+        <a [routerLink]="['/jugadores/edit', jugador.jug_id]" class="btn btn-info btn-block fa fa-edit"></a>
+        <button class="btn btn-danger" (click)="deleteJugador(jugador.jug_id)">
             <i class="fa fa-trash"></i>
         </button>
+        <img class="card-img-top" [src]="jugador.jug_imagen == '' ? '/assets/noimage.png' : jugador.jug_imagen" alt="" style="height: 130px;">
         <div class="card-body">
-            <h6 class="card-header">{{jugador.nombre}}</h6>
+            <h6 class="card-header">{{jugador.jug_nombre}}</h6>
         </div>
-        <img class="card-img-top" [src]="jugador.imagen" alt="imagen">
         <div class="card-body">
-            <p class="card-text">Algún texto generico.</p>
+            <p class="card-text">{{jugador.jug_rut}}</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{jugador.rut}}</li>
-            <li class="list-group-item">Fecha nacimiento</li>
-            <li class="list-group-item">Fecha creación Req: {{jugador.create_row_date | date: 'yyyy-MM-dd'}}</li>
+            <li class="list-group-item">{{jugador.jug_fecha_nac | date: 'dd-MM-yyyy'}}</li>
         </ul>
         <div class="card-footer text-muted">
-            Activo / Inactivo
+            {{jugador.jug_estado_en_club ? 'Activo' : 'Inactivo'}}
         </div>
     </div>
 </div>
