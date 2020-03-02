@@ -2,35 +2,129 @@
   <app-navigation></app-navigation>
   <app-navigation-jug></app-navigation-jug>
 </div>
-<div class="col-md-4 offset-md-2">
+<div class="col-md-12">
     <div class="card">
       <div class="card-body">
         <form action="">
-          <div class="form-group">
-            <input type="text" name="rut" [(ngModel)]="jugador.jug_rut" placeholder="Rut" class="form-control" autofocus>
+
+          <div class="col-md-12" style="display: flex; padding: 0;">
+            <div class="form-group col-md-3">
+              <label for="jug_nombre">Nombre</label>
+              <input type="text" name="jug_nombre" [(ngModel)]="jugador.jug_nombre" placeholder="Nombre" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="jug_telefono">Teléfono</label>
+              <input type="text" name="jug_telefono" [(ngModel)]="jugador.jug_telefono" placeholder="Teléfono" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="jug_email">E-mail</label>
+              <input type="text" name="jug_email" [(ngModel)]="jugador.jug_email" placeholder="E-mail" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="jug_rut">Rut</label>
+              <input type="text" name="jug_rut" [(ngModel)]="jugador.jug_rut" placeholder="Rut" class="form-control" autofocus>
+            </div>
           </div>
-          <div class="form-group">
-            <input type="text" name="nombre" [(ngModel)]="jugador.jug_nombre" placeholder="Nombre" class="form-control" autofocus>
+
+          <div class="col-md-12" style="display: flex; padding: 0;">
+            <div class="form-group col-md-3">
+              <label for="jug_fecha_nac">Fecha Nacimiento</label>
+              <input type="text" name="jug_fecha_nac" [ngModel]="jugador.jug_fecha_nac | date: 'dd-MM-yyyy'" placeholder="Fecha Nacimiento" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="jug_imagen">Imagen</label>
+              <input type="text" name="jug_imagen" [(ngModel)]="jugador.jug_imagen" placeholder="Imagen" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="jug_fecha_ingreso">Fecha ingreso al Club</label>
+              <input type="text" name="jug_fecha_ingreso" [(ngModel)]="jugador.jug_fecha_ingreso" placeholder="Fecha ingreso al Club" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="jug_estado_en_club">Activo/Inactivo</label>
+              <input type="text" name="jug_estado_en_club" [(ngModel)]="jugador.jug_estado_en_club" placeholder="Activo/Inactivo" class="form-control" autofocus>
+            </div>
           </div>
-          <div class="form-group">
-            <input type="url" name="image URL" [(ngModel)]="jugador.jug_imagen" placeholder="Image" class="form-control">
+
+          <div class="col-md-12" style="display: flex; padding: 0;">
+            <div class="form-group col-md-3">
+              <label for="jug_prevision">Previsión</label>
+              <input type="text" name="jug_prevision" [(ngModel)]="jugador.jug_prevision" placeholder="Previsión" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="jug_grupo_sanguineo">Grupo Sanguineo</label>
+              <input type="text" name="jug_grupo_sanguineo" [(ngModel)]="jugador.jug_grupo_sanguineo" placeholder="Grupo Sanguineo" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="jug_puesto_cancha">Puesto Cancha</label>
+              <input type="text" name="jug_puesto_cancha" [(ngModel)]="jugador.jug_puesto_cancha" placeholder="Puesto Cancha" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="jug_categoria">Categoría</label>
+              <input type="text" name="jug_categoria" [(ngModel)]="jugador.jug_categoria" placeholder="Categoría" class="form-control" autofocus>
+            </div>
           </div>
-          <button class="btn btn-success btn-block" (click)="edit ? updateJugador() : saveNewJugador()">
-            Save
-          </button>
-          <button class="btn btn-success btn-block" routerLink="/jugadores">
-            Cancelar
-          </button>
+
+          <div class="col-md-12" style="display: flex; padding: 0;">
+            <div class="form-group col-md-6">
+              <label for="jug_seguro_acc">Seguro Accidente</label>
+              <input type="text" name="jug_seguro_acc" [(ngModel)]="jugador.jug_seguro_acc" placeholder="Seguro Accidente" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="jug_medicamentos">Medicamentos</label>
+              <input type="text" name="jug_medicamentos" [(ngModel)]="jugador.jug_medicamentos" placeholder="Medicamentos" class="form-control" autofocus>
+            </div>
+          </div>
+          <div class="col-md-12" style="display: flex; padding: 0;">
+            <div class="form-group col-md-6">
+              <label for="jug_evaluacion_nutri">Evaluacion NutriCional</label>
+              <input type="text" name="jug_evaluacion_nutri" [(ngModel)]="jugador.jug_evaluacion_nutri" placeholder="Evaluacion NutriCional" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="jug_alergias">Alergias</label>
+              <input type="text" name="jug_alergias" [(ngModel)]="jugador.jug_alergias" placeholder="Alergias" class="form-control" autofocus>
+            </div>
+          </div>
+
+          <div class="col-md-12" style="display: flex; padding: 0;">
+            <div class="form-group col-md-12">
+              <label for="jug_observaciones">Observaciones</label>
+              <input type="text" name="jug_observaciones" [(ngModel)]="jugador.jug_observaciones" placeholder="Observaciones" class="form-control" autofocus>
+            </div>
+          </div>
+
+          <div class="col-md-12" style="display: flex; padding: 0;" *ngIf="false">
+            <div class="form-group col-md-3">
+              <label for="jug_estatura">Estatura</label>
+              <input type="text" name="jug_estatura" [(ngModel)]="jugador.jug_estatura" placeholder="Estatura" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="jug_peso">Peso</label>
+              <input type="text" name="jug_peso" [(ngModel)]="jugador.jug_peso" placeholder="Peso" class="form-control" autofocus>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="jug_fecha_esta_peso">Fecha Captura Estatura/Peso</label>
+              <input type="text" name="jug_fecha_esta_peso" [(ngModel)]="jugador.jug_fecha_esta_peso" placeholder="Fecha Captura Estatura/Peso" class="form-control" autofocus>
+            </div>
+          </div>
+
+          <div class="col-md-12" style="display: flex; padding: 0;">
+            <div class="form-group col-md-3 offset-md-6">
+              <button class="btn btn-success col-md-12" routerLink="/jugadores">Cancelar</button>
+            </div>
+            <div class="form-group col-md-3">
+              <button class="btn btn-success col-md-12" (click)="edit ? updateJugador() : saveNewJugador()">Save</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
   </div>
   
-  <div class="col-md-4 offset-md-2">
+  <!--<div class="col-md-4 offset-md-2">
     <div class="card card-body text-center">
     <img [src]="jugador.jug_imagen == '' ? '/assets/noimage.png' : jugador.jug_imagen" alt="No Imagen" class="card-img-top">
       <h3>{{jugador.jug_rut == '' ? 'Rut Del Jugador' : jugador.jug_rut}}</h3>
       <p>{{jugador.jug_nombre == '' ? 'Nombre Del Jugador' : jugador.jug_nombre}}</p>
       <p>{{jugador.jug_fecha_nac | date: 'yyyy-MM-dd'}}</p>
     </div>
-  </div>
+  </div>-->
