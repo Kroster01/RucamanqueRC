@@ -24,7 +24,6 @@ class LoginController {
         let sql = 'SELECT * FROM usuario WHERE USU_NICKNAME = \'' + [nickName] + '\' and USU_PASSWORD = \'' + [password] + '\' and USU_ESTADO = 1';
         console.log(sql);
         const login = await pool.query(sql);
-        console.log(login.length);
         if (login.length > 0) {
             return res.status(200).json({ 
                 dataUser: {
@@ -41,7 +40,7 @@ class LoginController {
             dataUser: null,
             code: 401,
             text: "Favor validar su Usuario u contraseña."
-     });
+        });
     }
 
     public async create (req: Request, res: Response): Promise<void> {

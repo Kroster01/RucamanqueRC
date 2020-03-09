@@ -10,7 +10,8 @@ export class Jugador {
 
     jug_fecha_ingreso?: Date;
     jug_seguro_acc?: string;
-    jug_estado_en_club?: boolean;
+    jug_estado_en_club?: number;
+    jug_estado_en_club_bool?: boolean;
     jug_medicamentos?: string;
     jug_evaluacion_nutri?: string;
     jug_alergias?: string;
