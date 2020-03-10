@@ -14,8 +14,10 @@ export class JugadorListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
 
   jugadores: any = [];
+  modeTable: boolean;
 
   ngOnInit() {
+    this.modeTable = true;
     this.getJugadores();
   }
 
@@ -70,17 +72,24 @@ export class JugadorListComponent implements OnInit {
       );
   }
 
-  deleteJugador(id: string) {
-    this.jugadorService.deleteJugador(id)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.getJugadores();
-        },
-        err => {
-          console.error(err)
+  zfill(number, width) {
+    var numberOutput = Math.abs(number); /* Valor absoluto del número */
+    var length = number.toString().length; /* Largo del número */ 
+    var zero = "0"; /* String de cero */  
+    
+    if (width <= length) {
+        if (number < 0) {
+             return ("-" + numberOutput.toString()); 
+        } else {
+             return numberOutput.toString(); 
         }
-      )
-  }
+    } else {
+        if (number < 0) {
+            return ("-" + (zero.repeat(width - length)) + numberOutput.toString()); 
+        } else {
+            return ((zero.repeat(width - length)) + numberOutput.toString()); 
+        }
+    }
+}
 
 }
