@@ -5,18 +5,19 @@ import { JwtResponseI } from '../models/jwt-response';
 import { tap } from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { error } from '@angular/compiler/src/util';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
 
-  AUTH_SERVER: string = 'http://localhost:3000';
+  _contextPath: string = environment.serverPath;
 
   authSubject = new BehaviorSubject(false);
   private token: string;
   constructor(private httpClient: HttpClient) { }
   
   register(user: UserI): Observable<JwtResponseI> {
-    return this.httpClient.post<JwtResponseI>(`${this.AUTH_SERVER}/register`, user).pipe(tap(
+    return this.httpClient.post<JwtResponseI>(`${this._contextPath}/register`, user).pipe(tap(
       (res: JwtResponseI) => {
         if (res.code == 200) {
           // guardar token
@@ -29,7 +30,7 @@ export class AuthService {
   }
 
   login(user: UserI): Observable<any> {
-    return this.httpClient.post<any>(`${this.AUTH_SERVER}/login/`, user).pipe(tap(
+    return this.httpClient.post<any>(`${this._contextPath}/login/`, user).pipe(tap(
       (res: any) => {
         if (res.code == 200) {
           // guardar token

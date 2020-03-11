@@ -1,5 +1,6 @@
 export default {
     /* Desa */
+    portServer: 3000,
     database: {
         host: 'localhost',
         user: 'root',

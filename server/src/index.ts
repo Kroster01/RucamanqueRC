@@ -4,6 +4,7 @@ import cors from 'cors';
 import indexRoutes from './routes/indexRoutes';
 import jugadoresRoutes from './routes/jugadoresRoutes';
 import loginRoutes from "./routes/loginRoutes";
+import keys from './keys';
 
 class Server {
     public app: Application;
@@ -15,7 +16,7 @@ class Server {
     }
 
     config(): void {
-        this.app.set('port', process.env.port || 3000);
+        this.app.set('port', process.env.port || keys.portServer);
         this.app.use(morgan('dev'));
         this.app.use(cors());
         this.app.use(express.json());

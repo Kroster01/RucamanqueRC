@@ -4,18 +4,19 @@ import { Jugador } from '../models/Jugador';
 import { Observable } from 'rxjs';
 import { JugResponseI } from '../models/jug-response';
 import { tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JugadoresService {
 
-  API_URI: string = 'http://localhost:3000';
+  _contextPath: string = environment.serverPath;
 
   constructor(private http: HttpClient) { }
 
   getJugadores(): Observable<JugResponseI> {
-    return this.http.get<JugResponseI>(`${this.API_URI}/jugador`).pipe(tap(
+    return this.http.get<JugResponseI>(`${this._contextPath}/jugador`).pipe(tap(
       (res: JugResponseI) => {
         if (res.code == 200) {
           // guardar token
@@ -29,7 +30,7 @@ export class JugadoresService {
   }
 
   getJugador(id: string): Observable<JugResponseI> {
-    return this.http.get<JugResponseI>(`${this.API_URI}/jugador/${id}`).pipe(tap(
+    return this.http.get<JugResponseI>(`${this._contextPath}/jugador/${id}`).pipe(tap(
       (res: JugResponseI) => {
         if (res.code == 200) {
           // guardar token
@@ -43,15 +44,15 @@ export class JugadoresService {
   }
 
   deleteJugador(id: string) {
-    return this.http.delete(`${this.API_URI}/jugador/${id}`);
+    return this.http.delete(`${this._contextPath}/jugador/${id}`);
   }
 
   saveJugador(jugador: Jugador) {
-    return this.http.post(`${this.API_URI}/jugador`, jugador);
+    return this.http.post(`${this._contextPath}/jugador`, jugador);
   }
 
   updateJugador(id: string|number, updatedJugador: Jugador): Observable<Jugador> {
-    return this.http.put(`${this.API_URI}/jugador/${id}`, updatedJugador);
+    return this.http.put(`${this._contextPath}/jugador/${id}`, updatedJugador);
   }
 
 }
