@@ -90,6 +90,11 @@ export class JugadorListComponent implements OnInit {
             return ((zero.repeat(width - length)) + numberOutput.toString()); 
         }
     }
-}
+  }
+
+  cambiarModoTabla() {
+    console.log('test de click');
+    this.modeTable = !this.modeTable;
+  }
 
 }
