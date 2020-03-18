@@ -7,6 +7,7 @@ import { JugadorListComponent } from './components/jugador-list/jugador-list.com
 import { JugadorFormComponent } from './components/jugador-form/jugador-form.component';
 import { NavigationJugadorComponent } from './components/navigation/navigationJugador.component';
 import { NavigationComponent } from '../components/navigation/navigation.component';
+import { FooterComponent } from '../components/footer/footer.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { NavigationComponent } from '../components/navigation/navigation.compone
     JugadorListComponent,
     JugadorFormComponent,
     NavigationJugadorComponent,
-    NavigationComponent
+    NavigationComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

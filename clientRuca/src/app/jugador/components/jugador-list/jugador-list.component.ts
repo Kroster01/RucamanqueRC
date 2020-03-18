@@ -93,7 +93,6 @@ export class JugadorListComponent implements OnInit {
   }
 
   cambiarModoTabla() {
-    console.log('test de click');
     this.modeTable = !this.modeTable;
   }
 

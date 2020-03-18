@@ -5,19 +5,16 @@
     </div>
 
     <div class="col-md-12">
-        <div class="form-group col-md-4">
+        <div class="col-md-6">
             <h3 *ngIf="modeTable">Modo Tabla</h3>
             <h3 *ngIf="!modeTable">Modo Card</h3>
         </div>
-        <div class="form-group col-md-4 offset-md-11" style="top: -45px;">
+        <div class="col-md-6">
             <label class="switch">
                 <input type="checkbox" (click)="cambiarModoTabla()">
                 <span class="slider"></span>
             </label>
         </div>
-    </div>
-
-    <div class="col-md-12">
         <table *ngIf="modeTable" class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -42,13 +39,13 @@
         </table>
     </div>
 
-    <div class="col-md-12">
+    <div class="row" style="padding-right: 15px; padding-left: 15px;">
         <div class="col-md-3" *ngFor="let jugador of jugadores">
             <div *ngIf="!modeTable" class="card text-center">
                 <a [routerLink]="['/jugadores/edit', jugador.jug_id]" class="btn btn-info btn-block fa fa-edit"></a>
                 <img class="card-img-top" [src]="jugador.jug_imagen == '' ? '/assets/noimage.png' : jugador.jug_imagen" alt="" style="height: 130px;">
                 <div class="card-body">
-                    <h6 class="card-header">{{jugador.jug_id}}</h6>
+                    <h6 class="card-header">JUG{{zfill(jugador.jug_id, 3)}}</h6>
                 </div>
                 <div class="card-body">
                     <h6 class="card-header">{{jugador.jug_nombre}}</h6>
@@ -64,6 +61,10 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="col-md-12">
+        <app-footer></app-footer>
     </div>
 
 </div>

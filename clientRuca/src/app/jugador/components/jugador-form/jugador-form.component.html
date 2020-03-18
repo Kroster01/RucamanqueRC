@@ -17,67 +17,67 @@
             </div>
           </div>
 
-          <div class="col-md-12" style="display: flex; padding: 0;">
-            <div class="form-group col-md-3">
+          <div class="row">
+            <div class="col-md-3">
               <label for="jug_nombre">Nombre *</label>
               <input type="text" name="jug_nombre" [(ngModel)]="jugador.jug_nombre" placeholder="Nombre" class="form-control" autofocus>
             </div>
-            <div class="form-group col-md-3">
+            <div class="col-md-3">
               <label for="jug_telefono">Teléfono *</label>
               <input type="text" name="jug_telefono" [(ngModel)]="jugador.jug_telefono" placeholder="Teléfono" class="form-control" autofocus>
             </div>
-            <div class="form-group col-md-3">
+            <div class="col-md-3">
               <label for="jug_email">E-mail *</label>
               <input type="text" name="jug_email" [(ngModel)]="jugador.jug_email" placeholder="E-mail" class="form-control" autofocus>
             </div>
-            <div class="form-group col-md-3">
+            <div class="col-md-3">
               <label for="jug_rut">Rut *</label>
               <input type="text" name="jug_rut" [(ngModel)]="jugador.jug_rut" placeholder="Rut" class="form-control" autofocus>
             </div>
           </div>
 
-          <div class="col-md-12" style="display: flex; padding: 0;">
-            <div class="form-group col-md-3">
+          <div class="row">
+            <div class="col-md-3">
               <label for="jug_fecha_nac">Fecha Nacimiento *</label>
               <input type="date" name="jug_fecha_nac" [ngModel]="jugador.jug_fecha_nac | date:'yyyy-MM-dd' : 'UTC'" 
               (ngModelChange)="jugador.jug_fecha_nac = $event" placeholder="Fecha Nacimiento" class="form-control" autofocus required>
             </div>
-            <div class="form-group col-md-3">
+            <div class="col-md-3">
               <label for="jug_imagen">Imagen</label>
               <input type="text" name="jug_imagen" [(ngModel)]="jugador.jug_imagen" placeholder="Imagen" class="form-control" autofocus>
             </div>
-            <div class="form-group col-md-3">
+            <div class="col-md-3">
               <label for="jug_fecha_ingreso">Fecha ingreso al Club *</label>
               <input type="date" name="jug_fecha_ingreso" [ngModel]="jugador.jug_fecha_ingreso | date:'yyyy-MM-dd' : 'UTC'" 
               (ngModelChange)="jugador.jug_fecha_ingreso = $event" placeholder="Fecha ingreso al Club" class="form-control" autofocus required>
             </div>
-            <div class="form-group col-md-3">
+            <div class="col-md-3">
               <label for="jug_estado_en_club_bool">Activo/Inactivo</label>
               <input type="checkbox" name="jug_estado_en_club_bool" class="form-control" [(ngModel)]="jugador.jug_estado_en_club_bool"
                 [checked]="jugador.jug_estado_en_club_bool" />
             </div>
           </div>
 
-          <div class="col-md-12" style="display: flex; padding: 0;">
-            <div class="form-group col-md-3">
+          <div class="row">
+            <div class="col-md-3">
               <label for="jug_prevision">Previsión</label>
               <select name="jug_prevision" [(ngModel)]="jugador.jug_prevision" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="prev" *ngFor="let prev of listaPrevision">{{prev}}</option>
               </select>
             </div>
-            <div class="form-group col-md-3">
+            <div class="col-md-3">
               <label for="jug_grupo_sanguineo">Grupo Sanguineo</label>
               <select name="jug_grupo_sanguineo" [(ngModel)]="jugador.jug_grupo_sanguineo" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="grupS" *ngFor="let grupS of listaGrupSang">{{grupS}}</option>
               </select>
             </div>
-            <div class="form-group col-md-3">
+            <div class="col-md-3">
               <label for="jug_puesto_cancha">Puesto Cancha</label>
               <select name="jug_puesto_cancha" [(ngModel)]="jugador.jug_puesto_cancha" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="posCan" *ngFor="let posCan of listaPostCancha">{{posCan}}</option>
               </select>
             </div>
-            <div class="form-group col-md-3">
+            <div class="col-md-3">
               <label for="jug_categoria">Categoría</label>
               <select name="jug_categoria" [(ngModel)]="jugador.jug_categoria" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="cate" *ngFor="let cate of listaCategoria">{{cate}}</option>
@@ -85,7 +85,7 @@
             </div>
           </div>
 
-          <div class="col-md-12" style="display: flex; padding: 0;">
+          <div class="row">
             <div class="form-group col-md-6">
               <label for="jug_seguro_acc">Seguro Accidente</label>
               <textarea name="jug_seguro_acc" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_seguro_acc" placeholder="Seguro Accidente"></textarea>
@@ -95,7 +95,7 @@
               <textarea name="jug_medicamentos" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_medicamentos" placeholder="Medicamentos"></textarea>
             </div>
           </div>
-          <div class="col-md-12" style="display: flex; padding: 0;">
+          <div class="row">
             <div class="form-group col-md-6">
               <label for="jug_evaluacion_nutri">Evaluacion NutriCional</label>
               <textarea name="jug_evaluacion_nutri" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_evaluacion_nutri" placeholder="Evaluacion NutriCional"></textarea>
@@ -106,30 +106,30 @@
             </div>
           </div>
 
-          <div class="col-md-12" style="display: flex; padding: 0;">
+          <div class="row">
             <div class="form-group col-md-12">
               <label for="jug_observaciones">Observaciones</label>
               <textarea name="jug_observaciones" rows="4" cols="50" class="form-control" [(ngModel)]="jugador.jug_observaciones" placeholder="Observaciones"></textarea>
             </div>
           </div>
 
-          <div class="col-md-12" style="display: flex; padding: 0;" *ngIf="false">
-            <div class="form-group col-md-3">
+          <div class="row" *ngIf="false">
+            <div class="col-md-3">
               <label for="jug_estatura">Estatura</label>
               <input type="text" name="jug_estatura" [(ngModel)]="jugador.jug_estatura" placeholder="Estatura" class="form-control" autofocus>
             </div>
-            <div class="form-group col-md-3">
+            <div class="col-md-3">
               <label for="jug_peso">Peso</label>
               <input type="text" name="jug_peso" [(ngModel)]="jugador.jug_peso" placeholder="Peso" class="form-control" autofocus>
             </div>
-            <div class="form-group col-md-3">
+            <div class="col-md-3">
               <label for="jug_fecha_esta_peso">Fecha Captura Estatura/Peso</label>
               <input type="date" name="jug_fecha_esta_peso" [ngModel]="jugador.jug_fecha_esta_peso | date:'yyyy-MM-dd' : 'UTC'" 
               (ngModelChange)="jugador.jug_fecha_esta_peso = $event" placeholder="Fecha Captura Estatura/Peso" class="form-control" autofocus required>
             </div>
           </div>
 
-          <div class="col-md-12" style="display: flex; padding: 0;">
+          <div class="row">
             <div class="form-group col-md-3 offset-md-6">
               <button class="btn btn-success col-md-12" routerLink="/jugadores">Cancelar</button>
             </div>
@@ -141,13 +141,9 @@
       </div>
     </div>
   </div>
-  
-  <!--<div class="col-md-4 offset-md-2">
-    <div class="card card-body text-center">
-    <img [src]="jugador.jug_imagen == '' ? '/assets/noimage.png' : jugador.jug_imagen" alt="No Imagen" class="card-img-top">
-      <h3>{{jugador.jug_rut == '' ? 'Rut Del Jugador' : jugador.jug_rut}}</h3>
-      <p>{{jugador.jug_nombre == '' ? 'Nombre Del Jugador' : jugador.jug_nombre}}</p>
-      <p>{{jugador.jug_fecha_nac | date: 'yyyy-MM-dd'}}</p>
-    </div>
-  </div>-->
+
+  <div class="col-md-12">
+    <app-footer></app-footer>
+  </div>
+
 </div>
