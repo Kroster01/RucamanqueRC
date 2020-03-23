@@ -1,58 +1,69 @@
 <div class="container">
-  <div class="col-md-12">
-    <app-navigation></app-navigation>
-    <app-navigation-jug></app-navigation-jug>
-  </div>
+
+  <app-navigation></app-navigation>
+  <app-navigation-jug></app-navigation-jug>
 
   <div class="col-md-12">
     <div class="card">
       <div class="card-body">
         <form action="">
 
-          <div class="alert alert-success" role="alert"  *ngIf="msError" >
-            {{ msErrorDesc }}
-            
-            <div class="form-group col-md-3 offset-md-9" style="display: contents;">
-              <button class="btn btn-success col-md-12" (click)="redirectJugList()" style="background-color: #05a079;">Lista Jugadorres</button>
+          <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">{{ tituloModal }}</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-          </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="dateOfBirth">{{ descModal }}</label>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-success col-md-12" (click)="redirectJugList();modal.dismiss('Boton volver Jugador')" style="background-color: #05a079;">Volver Lista Jugadorres</button>
+              <button type="button" class="btn" (click)="modal.close('Save click')">Cerrar</button>
+            </div>  
+          </ng-template>
 
           <div class="row">
             <div class="col-md-3">
-              <label for="jug_nombre">Nombre *</label>
+              <label for="jug_nombre">Nombre <span class="obligatorio">*</span></label>
               <input type="text" name="jug_nombre" [(ngModel)]="jugador.jug_nombre" placeholder="Nombre" class="form-control" autofocus>
             </div>
             <div class="col-md-3">
-              <label for="jug_telefono">Teléfono *</label>
+              <label for="jug_telefono">Teléfono <span class="obligatorio">*</span></label>
               <input type="text" name="jug_telefono" [(ngModel)]="jugador.jug_telefono" placeholder="Teléfono" class="form-control" autofocus>
             </div>
             <div class="col-md-3">
-              <label for="jug_email">E-mail *</label>
+              <label for="jug_email">E-mail <span class="obligatorio">*</span></label>
               <input type="text" name="jug_email" [(ngModel)]="jugador.jug_email" placeholder="E-mail" class="form-control" autofocus>
             </div>
             <div class="col-md-3">
-              <label for="jug_rut">Rut *</label>
+              <label for="jug_rut">Rut <span class="obligatorio">*</span></label>
               <input type="text" name="jug_rut" [(ngModel)]="jugador.jug_rut" placeholder="Rut" class="form-control" autofocus>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-3">
-              <label for="jug_fecha_nac">Fecha Nacimiento *</label>
+              <label for="jug_fecha_nac">Fecha Nacimiento <span class="obligatorio">*</span></label>
               <input type="date" name="jug_fecha_nac" [ngModel]="jugador.jug_fecha_nac | date:'yyyy-MM-dd' : 'UTC'" 
               (ngModelChange)="jugador.jug_fecha_nac = $event" placeholder="Fecha Nacimiento" class="form-control" autofocus required>
             </div>
             <div class="col-md-3">
-              <label for="jug_imagen">Imagen</label>
+              <label for="jug_imagen">Imagen <span class="obligatorio"></span></label>
               <input type="text" name="jug_imagen" [(ngModel)]="jugador.jug_imagen" placeholder="Imagen" class="form-control" autofocus>
             </div>
             <div class="col-md-3">
-              <label for="jug_fecha_ingreso">Fecha ingreso al Club *</label>
+              <label for="jug_fecha_ingreso">Fecha ingreso al Club <span class="obligatorio">*</span></label>
               <input type="date" name="jug_fecha_ingreso" [ngModel]="jugador.jug_fecha_ingreso | date:'yyyy-MM-dd' : 'UTC'" 
               (ngModelChange)="jugador.jug_fecha_ingreso = $event" placeholder="Fecha ingreso al Club" class="form-control" autofocus required>
             </div>
             <div class="col-md-3">
-              <label for="jug_estado_en_club_bool">Activo/Inactivo</label>
+              <label for="jug_estado_en_club_bool">Activo/Inactivo <span class="obligatorio"></span></label>
               <input type="checkbox" name="jug_estado_en_club_bool" class="form-control" [(ngModel)]="jugador.jug_estado_en_club_bool"
                 [checked]="jugador.jug_estado_en_club_bool" />
             </div>
@@ -60,25 +71,25 @@
 
           <div class="row">
             <div class="col-md-3">
-              <label for="jug_prevision">Previsión</label>
+              <label for="jug_prevision">Previsión <span class="obligatorio"></span></label>
               <select name="jug_prevision" [(ngModel)]="jugador.jug_prevision" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="prev" *ngFor="let prev of listaPrevision">{{prev}}</option>
               </select>
             </div>
             <div class="col-md-3">
-              <label for="jug_grupo_sanguineo">Grupo Sanguineo</label>
+              <label for="jug_grupo_sanguineo">Grupo Sanguineo <span class="obligatorio"></span></label>
               <select name="jug_grupo_sanguineo" [(ngModel)]="jugador.jug_grupo_sanguineo" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="grupS" *ngFor="let grupS of listaGrupSang">{{grupS}}</option>
               </select>
             </div>
             <div class="col-md-3">
-              <label for="jug_puesto_cancha">Puesto Cancha</label>
+              <label for="jug_puesto_cancha">Puesto Cancha <span class="obligatorio"></span></label>
               <select name="jug_puesto_cancha" [(ngModel)]="jugador.jug_puesto_cancha" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="posCan" *ngFor="let posCan of listaPostCancha">{{posCan}}</option>
               </select>
             </div>
             <div class="col-md-3">
-              <label for="jug_categoria">Categoría</label>
+              <label for="jug_categoria">Categoría <span class="obligatorio"></span></label>
               <select name="jug_categoria" [(ngModel)]="jugador.jug_categoria" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="cate" *ngFor="let cate of listaCategoria">{{cate}}</option>
               </select>
@@ -87,43 +98,43 @@
 
           <div class="row">
             <div class="form-group col-md-6">
-              <label for="jug_seguro_acc">Seguro Accidente</label>
+              <label for="jug_seguro_acc">Seguro Accidente <span class="obligatorio"></span></label>
               <textarea name="jug_seguro_acc" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_seguro_acc" placeholder="Seguro Accidente"></textarea>
             </div>
             <div class="form-group col-md-6">
-              <label for="jug_medicamentos">Medicamentos</label>
+              <label for="jug_medicamentos">Medicamentos <span class="obligatorio"></span></label>
               <textarea name="jug_medicamentos" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_medicamentos" placeholder="Medicamentos"></textarea>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-6">
-              <label for="jug_evaluacion_nutri">Evaluacion NutriCional</label>
+              <label for="jug_evaluacion_nutri">Evaluacion NutriCional <span class="obligatorio"></span></label>
               <textarea name="jug_evaluacion_nutri" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_evaluacion_nutri" placeholder="Evaluacion NutriCional"></textarea>
             </div>
             <div class="form-group col-md-6">
-              <label for="jug_alergias">Alergias</label>
+              <label for="jug_alergias">Alergias <span class="obligatorio"></span></label>
               <textarea name="jug_alergias" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_alergias" placeholder="Alergias"></textarea>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-md-12">
-              <label for="jug_observaciones">Observaciones</label>
+              <label for="jug_observaciones">Observaciones <span class="obligatorio"></span></label>
               <textarea name="jug_observaciones" rows="4" cols="50" class="form-control" [(ngModel)]="jugador.jug_observaciones" placeholder="Observaciones"></textarea>
             </div>
           </div>
 
           <div class="row" *ngIf="false">
             <div class="col-md-3">
-              <label for="jug_estatura">Estatura</label>
+              <label for="jug_estatura">Estatura <span class="obligatorio"></span></label>
               <input type="text" name="jug_estatura" [(ngModel)]="jugador.jug_estatura" placeholder="Estatura" class="form-control" autofocus>
             </div>
             <div class="col-md-3">
-              <label for="jug_peso">Peso</label>
+              <label for="jug_peso">Peso <span class="obligatorio"></span></label>
               <input type="text" name="jug_peso" [(ngModel)]="jugador.jug_peso" placeholder="Peso" class="form-control" autofocus>
             </div>
             <div class="col-md-3">
-              <label for="jug_fecha_esta_peso">Fecha Captura Estatura/Peso</label>
+              <label for="jug_fecha_esta_peso">Fecha Captura Estatura/Peso <span class="obligatorio"></span></label>
               <input type="date" name="jug_fecha_esta_peso" [ngModel]="jugador.jug_fecha_esta_peso | date:'yyyy-MM-dd' : 'UTC'" 
               (ngModelChange)="jugador.jug_fecha_esta_peso = $event" placeholder="Fecha Captura Estatura/Peso" class="form-control" autofocus required>
             </div>
@@ -134,7 +145,7 @@
               <button class="btn btn-success col-md-12" routerLink="/jugadores">Cancelar</button>
             </div>
             <div class="form-group col-md-3">
-              <button class="btn btn-success col-md-12" (click)="edit ? updateJugador() : saveNewJugador()">Save</button>
+              <button class="btn btn-success col-md-12" (click)="edit ? updateJugador(content) : saveNewJugador(content)">Save</button>
             </div>
           </div>
         </form>
@@ -142,8 +153,6 @@
     </div>
   </div>
 
-  <div class="col-md-12">
-    <app-footer></app-footer>
-  </div>
+  <app-footer></app-footer>
 
 </div>

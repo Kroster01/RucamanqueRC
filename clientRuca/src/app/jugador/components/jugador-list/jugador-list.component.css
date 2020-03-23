@@ -58,3 +58,25 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+.activeText {
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.inActiveText {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.obligatorio {
+    color: red;
+    font-size: 25px;
+}
+
+button.btn-success {
+    color: black;
+    font-weight: bold;
+}

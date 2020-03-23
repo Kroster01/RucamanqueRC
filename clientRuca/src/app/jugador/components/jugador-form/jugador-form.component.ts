@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
+import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Jugador } from 'src/app/models/Jugador';
 
 import { JugadoresService } from 'src/app/services/jugadores.service';
@@ -12,20 +13,20 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class JugadorFormComponent implements OnInit {
   @HostBinding('class') clases = 'row';
 
+  tituloModal = '';
+  descModal = '';
   jugador: Jugador = {
     jug_id: 0,
     jug_imagen: ''
   };
 
   edit: boolean = false;
-  msError: boolean = false;
-  msErrorDesc: string = '';
   listaPrevision: string[] = [];
   listaGrupSang: string[] = [];
   listaPostCancha: string[] = [];
   listaCategoria: string[] = [];
 
-  constructor(private jugadorService: JugadoresService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private jugadorService: JugadoresService, private router: Router, private activatedRoute: ActivatedRoute, private modalService: NgbModal) {
 
     const params = this.activatedRoute.snapshot.params;
     if (params.id) {
@@ -125,21 +126,22 @@ export class JugadorFormComponent implements OnInit {
     }
   }
 
-  saveNewJugador() {
+  saveNewJugador(content) {
     delete this.jugador.jug_usu_crea;
     delete this.jugador.jug_id;
     this.jugador.jug_estado_en_club = 1;
     this.jugadorService.saveJugador(this.jugador)
       .subscribe(
         res => {
-          this.msError = true;
-          this.msErrorDesc = 'Registro Creado Exitosamente.';
+          this.tituloModal = 'Creación';
+          this.descModal = 'Registro Creado Exitosamente.';
+          this.open(content);
         },
         err => console.error(err)
       )
   }
 
-  updateJugador() {
+  updateJugador(content) {
     this.jugador.jug_estado_en_club = this.jugador.jug_estado_en_club_bool ? 1 : 0;
     delete this.jugador.jug_usu_crea;
     delete this.jugador.jug_usu_fecha_crea;
@@ -149,8 +151,9 @@ export class JugadorFormComponent implements OnInit {
     this.jugadorService.updateJugador(this.jugador.jug_id, this.jugador)
       .subscribe(
         res => {
-          this.msError = true;
-          this.msErrorDesc = 'Datos Actualizados Exitosamente.';
+          this.tituloModal = 'Actualización';
+          this.descModal = 'Datos Actualizados Exitosamente.';
+          this.open(content);
         },
         err => console.error(err)
       )
@@ -167,4 +170,21 @@ export class JugadorFormComponent implements OnInit {
     return prevision1 === prevision2;
   }
 
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      console.log(`Closed with: ${result}`);
+    }, (reason) => {
+      console.log(`Dismissed ${this.getDismissReason(reason)}`);
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 }

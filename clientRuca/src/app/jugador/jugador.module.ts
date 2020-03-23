@@ -9,7 +9,6 @@ import { NavigationJugadorComponent } from './components/navigation/navigationJu
 import { NavigationComponent } from '../components/navigation/navigation.component';
 import { FooterComponent } from '../components/footer/footer.component';
 
-
 @NgModule({
   declarations: [
     JugadorListComponent,

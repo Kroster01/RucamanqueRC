@@ -1,0 +1,26 @@
+
+#wrapper {
+  min-height: 100%;
+  position: relative;
+  padding: 0px;
+}
+
+#header-zone {
+  height: 15px;
+  background: transparent;
+  bottom: 0;
+  left: 0;
+}
+#middle-zone {
+  padding: 10px;
+  height: 50px;
+  background: transparent;
+  bottom: 0;
+  left: 0;
+}
+#footer-zone {
+  height: 15px;
+  background: transparent;
+  bottom: 0;
+  left: 0;
+}
