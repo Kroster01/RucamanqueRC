@@ -90,6 +90,7 @@ Creación de aplicación angular:
        * ng g c components/jugador-form
        * ng g c components/jugador-list
        * ng g c components/footer
+       * ng g c components/page404
 
        * ng g c auth/login
        * ng g c auth/register

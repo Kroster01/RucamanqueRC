@@ -11,10 +11,12 @@ import { AppComponent } from './app.component';
 import { JugadoresService } from './services/jugadores.service';
 import { AuthModule } from "../app/auth/auth.module";
 import { JugadorModule } from "../app/jugador/jugador.module";
+import { Page404Component } from './components/page404/page404.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
