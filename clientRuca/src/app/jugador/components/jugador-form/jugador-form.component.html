@@ -6,7 +6,7 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-body">
-        <form action="">
+        <form action="" #jugadorForm="ngForm">
 
           <ng-template #content let-modal>
             <div class="modal-header">
@@ -31,66 +31,63 @@
           <div class="row">
             <div class="col-md-3">
               <label for="jug_nombre">Nombre <span class="obligatorio">*</span></label>
-              <input type="text" name="jug_nombre" [(ngModel)]="jugador.jug_nombre" placeholder="Nombre" class="form-control" autofocus>
+              <input type="text" #jug_nombre name="jug_nombre" [(ngModel)]="jugador.jug_nombre" placeholder="Nombre" class="form-control" autofocus required>
             </div>
             <div class="col-md-3">
               <label for="jug_telefono">Teléfono <span class="obligatorio">*</span></label>
-              <input type="text" name="jug_telefono" [(ngModel)]="jugador.jug_telefono" placeholder="Teléfono" class="form-control" autofocus>
+              <input type="text" #jug_telefono name="jug_telefono" [(ngModel)]="jugador.jug_telefono" placeholder="Teléfono" class="form-control" autofocus required>
             </div>
             <div class="col-md-3">
               <label for="jug_email">E-mail <span class="obligatorio">*</span></label>
-              <input type="text" name="jug_email" [(ngModel)]="jugador.jug_email" placeholder="E-mail" class="form-control" autofocus>
+              <input type="text" #jug_email name="jug_email" [(ngModel)]="jugador.jug_email" placeholder="E-mail" class="form-control" autofocus required>
             </div>
             <div class="col-md-3">
               <label for="jug_rut">Rut <span class="obligatorio">*</span></label>
-              <input type="text" name="jug_rut" [(ngModel)]="jugador.jug_rut" placeholder="Rut" class="form-control" autofocus>
+              <input type="text" #jug_rut name="jug_rut" [(ngModel)]="jugador.jug_rut" placeholder="Rut" class="form-control" autofocus required>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-3">
               <label for="jug_fecha_nac">Fecha Nacimiento <span class="obligatorio">*</span></label>
-              <input type="date" name="jug_fecha_nac" [ngModel]="jugador.jug_fecha_nac | date:'yyyy-MM-dd' : 'UTC'" 
-              (ngModelChange)="jugador.jug_fecha_nac = $event" placeholder="Fecha Nacimiento" class="form-control" autofocus required>
+              <input type="date" #jug_fecha_nac name="jug_fecha_nac" [ngModel]="jugador.jug_fecha_nac | date:'yyyy-MM-dd' : 'UTC'" (ngModelChange)="jugador.jug_fecha_nac = $event" placeholder="Fecha Nacimiento" class="form-control" autofocus required>
             </div>
             <div class="col-md-3">
               <label for="jug_imagen">Imagen <span class="obligatorio"></span></label>
-              <input type="text" name="jug_imagen" [(ngModel)]="jugador.jug_imagen" placeholder="Imagen" class="form-control" autofocus>
+              <input type="text" #jug_imagen name="jug_imagen" [(ngModel)]="jugador.jug_imagen" placeholder="Imagen" class="form-control" autofocus>
             </div>
             <div class="col-md-3">
               <label for="jug_fecha_ingreso">Fecha ingreso al Club <span class="obligatorio">*</span></label>
-              <input type="date" name="jug_fecha_ingreso" [ngModel]="jugador.jug_fecha_ingreso | date:'yyyy-MM-dd' : 'UTC'" 
-              (ngModelChange)="jugador.jug_fecha_ingreso = $event" placeholder="Fecha ingreso al Club" class="form-control" autofocus required>
+              <input type="date" #jug_fecha_ingreso name="jug_fecha_ingreso" [ngModel]="jugador.jug_fecha_ingreso | date:'yyyy-MM-dd' : 'UTC'" (ngModelChange)="jugador.jug_fecha_ingreso = $event" placeholder="Fecha ingreso al Club" class="form-control" autofocus required>
             </div>
             <div class="col-md-3">
               <label for="jug_estado_en_club_bool">Activo/Inactivo <span class="obligatorio"></span></label>
-              <input type="checkbox" name="jug_estado_en_club_bool" class="form-control" [(ngModel)]="jugador.jug_estado_en_club_bool"
-                [checked]="jugador.jug_estado_en_club_bool" />
+              <input type="checkbox" #jug_estado_en_club_bool name="jug_estado_en_club_bool" class="form-control" [(ngModel)]="jugador.jug_estado_en_club_bool" [checked]="jugador.jug_estado_en_club_bool" />
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-3">
               <label for="jug_prevision">Previsión <span class="obligatorio"></span></label>
-              <select name="jug_prevision" [(ngModel)]="jugador.jug_prevision" [compareWith]="compararNombres" class="form-control">
+              <select #jug_prevision name="jug_prevision" [(ngModel)]="jugador.jug_prevision" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="prev" *ngFor="let prev of listaPrevision">{{prev}}</option>
               </select>
             </div>
             <div class="col-md-3">
               <label for="jug_grupo_sanguineo">Grupo Sanguineo <span class="obligatorio"></span></label>
-              <select name="jug_grupo_sanguineo" [(ngModel)]="jugador.jug_grupo_sanguineo" [compareWith]="compararNombres" class="form-control">
+              <select #jug_grupo_sanguineo name="jug_grupo_sanguineo" [(ngModel)]="jugador.jug_grupo_sanguineo" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="grupS" *ngFor="let grupS of listaGrupSang">{{grupS}}</option>
               </select>
             </div>
             <div class="col-md-3">
               <label for="jug_puesto_cancha">Puesto Cancha <span class="obligatorio"></span></label>
-              <select name="jug_puesto_cancha" [(ngModel)]="jugador.jug_puesto_cancha" [compareWith]="compararNombres" class="form-control">
+              <select #jug_puesto_cancha name="jug_puesto_cancha" [(ngModel)]="jugador.jug_puesto_cancha" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="posCan" *ngFor="let posCan of listaPostCancha">{{posCan}}</option>
               </select>
             </div>
             <div class="col-md-3">
               <label for="jug_categoria">Categoría <span class="obligatorio"></span></label>
-              <select name="jug_categoria" [(ngModel)]="jugador.jug_categoria" [compareWith]="compararNombres" class="form-control">
+              <select #jug_categoria name="jug_categoria" [(ngModel)]="jugador.jug_categoria" [compareWith]="compararNombres" class="form-control">
                 <option [ngValue]="cate" *ngFor="let cate of listaCategoria">{{cate}}</option>
               </select>
             </div>
@@ -99,44 +96,43 @@
           <div class="row">
             <div class="form-group col-md-6">
               <label for="jug_seguro_acc">Seguro Accidente <span class="obligatorio"></span></label>
-              <textarea name="jug_seguro_acc" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_seguro_acc" placeholder="Seguro Accidente"></textarea>
+              <textarea #jug_seguro_acc name="jug_seguro_acc" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_seguro_acc" placeholder="Seguro Accidente"></textarea>
             </div>
             <div class="form-group col-md-6">
               <label for="jug_medicamentos">Medicamentos <span class="obligatorio"></span></label>
-              <textarea name="jug_medicamentos" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_medicamentos" placeholder="Medicamentos"></textarea>
+              <textarea #jug_medicamentos name="jug_medicamentos" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_medicamentos" placeholder="Medicamentos"></textarea>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-6">
               <label for="jug_evaluacion_nutri">Evaluacion NutriCional <span class="obligatorio"></span></label>
-              <textarea name="jug_evaluacion_nutri" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_evaluacion_nutri" placeholder="Evaluacion NutriCional"></textarea>
+              <textarea #jug_evaluacion_nutri name="jug_evaluacion_nutri" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_evaluacion_nutri" placeholder="Evaluacion NutriCional"></textarea>
             </div>
             <div class="form-group col-md-6">
               <label for="jug_alergias">Alergias <span class="obligatorio"></span></label>
-              <textarea name="jug_alergias" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_alergias" placeholder="Alergias"></textarea>
+              <textarea #jug_alergias name="jug_alergias" rows="2" cols="50" class="form-control" [(ngModel)]="jugador.jug_alergias" placeholder="Alergias"></textarea>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-md-12">
               <label for="jug_observaciones">Observaciones <span class="obligatorio"></span></label>
-              <textarea name="jug_observaciones" rows="4" cols="50" class="form-control" [(ngModel)]="jugador.jug_observaciones" placeholder="Observaciones"></textarea>
+              <textarea #jug_observaciones name="jug_observaciones" rows="4" cols="50" class="form-control" [(ngModel)]="jugador.jug_observaciones" placeholder="Observaciones"></textarea>
             </div>
           </div>
 
           <div class="row" *ngIf="false">
             <div class="col-md-3">
               <label for="jug_estatura">Estatura <span class="obligatorio"></span></label>
-              <input type="text" name="jug_estatura" [(ngModel)]="jugador.jug_estatura" placeholder="Estatura" class="form-control" autofocus>
+              <input type="text" #jug_estatura name="jug_estatura" [(ngModel)]="jugador.jug_estatura" placeholder="Estatura" class="form-control" autofocus>
             </div>
             <div class="col-md-3">
               <label for="jug_peso">Peso <span class="obligatorio"></span></label>
-              <input type="text" name="jug_peso" [(ngModel)]="jugador.jug_peso" placeholder="Peso" class="form-control" autofocus>
+              <input type="text" #jug_peso name="jug_peso" [(ngModel)]="jugador.jug_peso" placeholder="Peso" class="form-control" autofocus>
             </div>
             <div class="col-md-3">
               <label for="jug_fecha_esta_peso">Fecha Captura Estatura/Peso <span class="obligatorio"></span></label>
-              <input type="date" name="jug_fecha_esta_peso" [ngModel]="jugador.jug_fecha_esta_peso | date:'yyyy-MM-dd' : 'UTC'" 
-              (ngModelChange)="jugador.jug_fecha_esta_peso = $event" placeholder="Fecha Captura Estatura/Peso" class="form-control" autofocus required>
+              <input type="date" #jug_fecha_esta_peso name="jug_fecha_esta_peso" [ngModel]="jugador.jug_fecha_esta_peso | date:'yyyy-MM-dd' : 'UTC'" (ngModelChange)="jugador.jug_fecha_esta_peso = $event" placeholder="Fecha Captura Estatura/Peso" class="form-control" autofocus required>
             </div>
           </div>
 
@@ -145,7 +141,9 @@
               <button class="btn btn-success col-md-12" routerLink="/jugadores">Cancelar</button>
             </div>
             <div class="form-group col-md-3">
-              <button class="btn btn-success col-md-12" (click)="edit ? updateJugador(content) : saveNewJugador(content)">Save</button>
+              <button class="btn btn-success col-md-12"
+              [disabled]="!jugadorForm.form.valid"
+              (click)="edit ? updateJugador(content) : saveNewJugador(content)">Save</button>
             </div>
           </div>
         </form>

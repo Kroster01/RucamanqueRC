@@ -20,3 +20,15 @@ button.btn-success {
     color: black;
     font-weight: bold;
 }
+
+.ng-valid[required], .ng-valid.required {
+    border-left: 20px solid #00bc8c;
+}
+
+.ng-invalid:not(form) {
+    border-left: 20px solid red;
+}
+
+button:disabled {
+    cursor: auto;
+}
